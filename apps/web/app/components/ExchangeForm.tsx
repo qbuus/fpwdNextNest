@@ -8,7 +8,7 @@ export default function ExchangeForm({
   isPending: boolean;
 }) {
   return (
-    <form action={onSubmit} className="flex flex-col gap-4">
+    <form action={onSubmit} className="flex flex-col gap-2">
       <label htmlFor="amountInEur" className="text-lg font-semibold">
         Amount in EUR
       </label>
@@ -21,8 +21,11 @@ export default function ExchangeForm({
         max={1000000}
         required
         placeholder="€"
+        step={0.01}
       />
-
+      <p className="text-sm text-gray-500">
+        Enter the amount you want to convert (max: €1,000,000)
+      </p>
       <button
         disabled={isPending}
         type="submit"
