@@ -1,4 +1,5 @@
 import CurrencyChecker from "./components/CurrencyChecker";
+import { Container } from "@repo/ui/container";
 
 export default function Page() {
   return (
@@ -15,7 +16,10 @@ export default function Page() {
         </header>
 
         <main>
-          <CurrencyChecker />
+          <Container>
+            <CurrencyChecker />
+            <div>123</div>
+          </Container>
         </main>
 
         <footer className="mt-16 text-center text-gray-500">

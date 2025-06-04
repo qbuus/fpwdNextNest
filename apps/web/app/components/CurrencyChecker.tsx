@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import { CardHeader } from "@repo/ui/cardHeader";
+import { Card } from "@repo/ui/card";
 
 function getExchangeRate() {
   const response = fetch(`http://localhost:8000/exchange/check`, {
@@ -19,11 +21,9 @@ export default function CurrencyChecker() {
   console.log(`Exchange rate: ${exchangeRate}`);
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
-      <div className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
-        <h2 className="text-emerald-600 text-center text-2xl font-semibold mb-2">
-          Exchange Rate
-        </h2>
+    <Card>
+      <CardHeader>Exchange Rate</CardHeader>
+      <div>
         <Suspense
           fallback={
             <div className="flex items-center justify-center p-4">
@@ -34,14 +34,14 @@ export default function CurrencyChecker() {
             </div>
           }
         >
-          <div className="text-center p-4">
-            <div className="text-3xl font-bold text-emerald-600 mb-2">
+          <div className="flex flex-col text-center gap-2">
+            <div className="text-2xl font-semibold text-emerald-600">
               {exchangeRate} PLN
             </div>
             <div className="text-gray-600">Current rate per 1 EUR</div>
           </div>
         </Suspense>
       </div>
-    </div>
+    </Card>
   );
 }
