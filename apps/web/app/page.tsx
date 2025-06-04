@@ -1,5 +1,6 @@
 import CurrencyChecker from "./components/CurrencyChecker";
 import { Container } from "@repo/ui/container";
+import Exchange from "./components/Exchange";
 
 export default function Page() {
   return (
@@ -18,7 +19,7 @@ export default function Page() {
         <main>
           <Container>
             <CurrencyChecker />
-            <div>123</div>
+            <Exchange />
           </Container>
         </main>
 
