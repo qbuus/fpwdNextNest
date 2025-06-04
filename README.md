@@ -24,7 +24,7 @@ App uses mongodb to store transaction data. Make sure to create `.env` in the ro
 MONGODB_URI=your_mongodb_connection_string
 API_KEY=your_api_key
 API_URL=your_api_url
-PORT=your_port_number Optional
+PORT=your_port_number (Optional; 8000 is recommended as the frontend is configured for this)
 ```
 
 ### How to run a project
