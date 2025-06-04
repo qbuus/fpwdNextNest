@@ -60,18 +60,7 @@ export class ExchangeService {
       rate: exchangeRate,
       timestamp: new Date(),
     });
-
     await exchangeData.save();
-    console.log('Data successfully saved to database');
-
-    console.log(
-      'Exchange saved to database: ',
-      exchangeData,
-      'Value in eur: ',
-      amountInEur,
-      'Value in pln: ',
-      plnAmount,
-    );
     return plnAmount;
   }
 
