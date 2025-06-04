@@ -16,6 +16,17 @@ This monorepo includes the following packages/apps:
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
+### Setup
+
+App uses mongodb to store transaction data. Make sure to create `.env` in the root api folder with the following variables
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+API_KEY=your_api_key
+API_URL=your_api_url
+PORT=your_port_number Optional
+```
+
 ### How to run a project
 
 Start with
