@@ -5,7 +5,6 @@ import { Model } from 'mongoose';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
 import { HttpService } from '@nestjs/axios';
-import { ConfigService } from '@nestjs/config';
 import { catchError, map, Observable, tap, of, firstValueFrom } from 'rxjs';
 
 @Injectable()
@@ -18,19 +17,7 @@ export class ExchangeService {
     @Inject(CACHE_MANAGER)
     private readonly cacheManager: Cache,
     private readonly httpService: HttpService,
-    private readonly configService: ConfigService,
   ) {}
-
-  /**
-   * Returns a test greeting message.
-   * This is a simple test function that returns a predefined greeting string.
-   *
-   * @returns {string} A test greeting message "Test Hello Get"
-   */
-  getHello() {
-    return 'Test Hello Get';
-  }
-
   /**
    * Return a cached exchange rate if available,
    * otherwise fetches and caches it
@@ -71,7 +58,8 @@ export class ExchangeService {
   fetchExchangeRate(): Observable<number> {
     return this.httpService.get('').pipe(
       map((response) => {
-        const exchangeRate = response.data.exchange_rate as number;
+        const data = response.data as { exchange_rate: number };
+        const exchangeRate = data.exchange_rate;
 
         this.cacheManager
           .set(this.CACHE_KEY, exchangeRate, this.CACHE_TTL)

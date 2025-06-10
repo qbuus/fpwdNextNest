@@ -15,7 +15,7 @@ import { ExchangeModule } from './exchange/exchange.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        const uri = configService.get<string>('MONGODB_URI');
+        const uri = configService.getOrThrow<string>('MONGODB_URI');
         if (!uri) {
           console.error('Missing MONGODB_URI environment variable');
           return {
