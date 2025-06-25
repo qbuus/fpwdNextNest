@@ -14,11 +14,11 @@ This monorepo includes the following packages/apps:
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+All components are implemented using [TypeScript](https://www.typescriptlang.org/).
 
 ### Setup
 
-App uses mongodb to store transaction data. Make sure to create `.env` in the root api folder with the following variables
+This project uses MongoDB to store transaction data. Before running the backend service, ensure that a `.env` file exists in the root of the `api` folder with the following environment variables:
 
 ```env
 MONGODB_URI=your_mongodb_connection_string
@@ -26,6 +26,8 @@ API_KEY=your_api_key
 API_URL=your_api_url
 PORT=your_port_number (Optional; 8000 is recommended as the frontend is configured for this)
 ```
+
+ **Note:** For the purposes of this recruitment project, the backend URL used by the frontend is currently hardcoded. This was done to simplify local development and setup during evaluation. However, in a production or collaborative environment, this value should be managed through environment variables to ensure better flexibility, configurability, and maintainability
 
 ### How to run a project
 
